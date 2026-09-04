@@ -7,8 +7,22 @@ Verifique se um inteiro n (> 1) é divisível unicamente por 1 e por ele mesmo, 
 
 
 def eh_primo(n: int) -> bool:
-    pass
+    primos_fund = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31]
 
+    for pr in primos_fund:
+        if n%pr == 0:
+            return n == pr
+    
+    if n > primos_fund[-1]:
+        aux = primos_fund[-1] + 2
+        ref = n**(1/2)
+        while(aux < ref):
+            if n%aux == 0:
+                return n == aux
+            else:
+                aux += 2
+
+    return True
 
 if __name__ == "__main__":
     casos = [

@@ -7,7 +7,19 @@ Gere uma lista de 1 a n substituindo múltiplos de 3 por "Fizz", de 5 por "Buzz"
 
 
 def fizz_buzz(n: int) -> list[str]:
-    pass
+    lista:list[str] = []
+    
+    for num in range(1, n+1):
+        if num%15 == 0:
+            lista.append('FizzBuzz')
+        elif num%3 == 0:
+            lista.append('Fizz')
+        elif num%5 == 0:
+            lista.append('Buzz')
+        else:
+            lista.append(str(num))
+
+    return lista
 
 
 if __name__ == "__main__":

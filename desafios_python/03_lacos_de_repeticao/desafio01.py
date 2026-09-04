@@ -7,8 +7,11 @@ Retorne uma lista contendo todos os números inteiros ímpares no intervalo fech
 
 
 def obter_impares(n: int) -> list[int]:
-    pass
+    impares = []
+    for num in range(1, n+1, 2):
+        impares.append(num)
 
+    return impares
 
 if __name__ == "__main__":
     casos = [
