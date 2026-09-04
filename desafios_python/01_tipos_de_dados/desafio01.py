@@ -7,7 +7,7 @@ Receba dois inteiros, calcule a soma algébrica entre eles e retorne o valor res
 
 
 def soma(a: int, b: int) -> int:
-    pass
+    return a + b
 
 
 if __name__ == "__main__":
