@@ -9,7 +9,7 @@ uma string formatada no padrão de moeda com prefixo 'R$ ' e exatamente duas cas
 
 
 def formatar_moeda(valor: float) -> str:
-    pass
+    return f"R$ {valor:.2f}"
 
 
 if __name__ == "__main__":
