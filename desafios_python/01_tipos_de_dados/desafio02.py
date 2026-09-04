@@ -1,30 +1,33 @@
 """
-beecrowd 1019 — Conversão de Tempo
+Sanitizador de Parâmetro Numérico
 Dificuldade: Fácil
 
-Converta um total em segundos para o formato de relógio "H:M:S" utilizando divisão inteira e resto.
+Enunciado:
+Receba uma string contendo um valor numérico que pode vir cercado de espaços em branco
+ou quebras de linha (ex: "  42 \n"). Limpe os caracteres vazios e retorne o valor como inteiro.
 """
 
 
-def segundos_para_horario(segundos: int) -> str:
+def sanitizar_parametro(param: str) -> int:
     pass
 
 
 if __name__ == "__main__":
     casos = [
-        ((556,), '0:9:16'),
-        ((1,), '0:0:1'),
-        ((140153,), '38:55:53')
+        (("  42 \n",), 42),
+        (("120",), 120),
+        (("\t 999 \r\n",), 999),
+        (("-15  ",), -15)
     ]
 
     print("=" * 50)
-    print("Iniciando testes para: segundos_para_horario")
+    print("Iniciando testes para: sanitizar_parametro")
     print("=" * 50)
 
     sucessos = 0
     for idx, (entrada, esperado) in enumerate(casos, 1):
         try:
-            obtido = segundos_para_horario(*entrada)
+            obtido = sanitizar_parametro(*entrada)
             if obtido == esperado:
                 print(f"[OK] Teste {idx} passou!")
                 sucessos += 1

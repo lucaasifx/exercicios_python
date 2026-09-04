@@ -1,30 +1,33 @@
 """
-LeetCode 67 — Add Binary
+Formatador de Moeda para API
 Dificuldade: Médio
 
-Receba duas strings que representam números binários e retorne a sua soma também formatada como string binária.
+Enunciado:
+Receba um valor em ponto flutuante representando uma quantia financeira e retorne
+uma string formatada no padrão de moeda com prefixo 'R$ ' e exatamente duas casas decimais.
 """
 
 
-def somar_binarios(a: str, b: str) -> str:
+def formatar_moeda(valor: float) -> str:
     pass
 
 
 if __name__ == "__main__":
     casos = [
-        (('11', '1'), '100'),
-        (('1010', '1011'), '10101'),
-        (('0', '0'), '0')
+        ((1250.5,), "R$ 1250.50"),
+        ((0.0,), "R$ 0.00"),
+        ((99.999,), "R$ 100.00"),
+        ((7.1,), "R$ 7.10")
     ]
 
     print("=" * 50)
-    print("Iniciando testes para: somar_binarios")
+    print("Iniciando testes para: formatar_moeda")
     print("=" * 50)
 
     sucessos = 0
     for idx, (entrada, esperado) in enumerate(casos, 1):
         try:
-            obtido = somar_binarios(*entrada)
+            obtido = formatar_moeda(*entrada)
             if obtido == esperado:
                 print(f"[OK] Teste {idx} passou!")
                 sucessos += 1
