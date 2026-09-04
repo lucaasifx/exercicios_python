@@ -14,24 +14,24 @@ def localizar_ponto(x: float, y: float) -> str:
         elif y < 0:
             return "Q4"
         else:
-            return "Eixo Y"
+            return "Eixo X"
     elif x < 0:
         if y > 0:
             return "Q2"
         elif y < 0:
             return "Q3"
         else:
-            return "Eixo Y"
+            return "Eixo X"
     elif y == 0:
         return "Origem"
     else:
-        return "Eixo X"
+        return "Eixo Y"
 
 if __name__ == "__main__":
     casos = [
         ((0.0, 0.0), 'Origem'),
-        ((0.0, 5.0), 'Eixo X'),
-        ((3.0, 0.0), 'Eixo Y'),
+        ((0.0, 5.0), 'Eixo Y'),
+        ((3.0, 0.0), 'Eixo X'),
         ((0.1, 0.1), 'Q1'),
         ((-0.1, 0.1), 'Q2'),
         ((-0.1, -0.1), 'Q3'),
