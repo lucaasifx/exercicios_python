@@ -7,7 +7,17 @@ Encontre os índices dos dois elementos cujo somatório atinge o valor alvo util
 
 
 def dois_soma(nums: list[int], alvo: int) -> tuple[int, int]:
-    pass
+    complemento = {}
+    for i1, n in enumerate(nums):
+        comp = alvo - n
+
+        i2 = complemento.get(comp)
+        if i2 == None:
+            complemento[n] = i1
+        else:
+            return (i2, i1)
+
+    return (-1, -1)
 
 
 if __name__ == "__main__":

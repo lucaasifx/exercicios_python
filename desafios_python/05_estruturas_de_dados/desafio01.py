@@ -7,7 +7,9 @@ Verifique a presença de elementos repetidos em uma lista de inteiros utilizando
 
 
 def contem_duplicata(nums: list[int]) -> bool:
-    pass
+    conj = set(nums)
+    return len(conj) < len(nums)
+
 
 
 if __name__ == "__main__":
