@@ -6,8 +6,15 @@ Retorne uma lista contendo todos os números inteiros ímpares no intervalo fech
 """
 
 
+# nessa aqui vou tentar treinar list comprehension alem da resposta
 def obter_impares(n: int) -> list[int]:
-    pass
+    # resposta trivial
+    # ans = []
+    # for i in range(n + 1):
+    #     if i % 2 != 0:
+    #         ans.append(i)
+    # return ans
+    return [i for i in range(n + 1) if i % 2 != 0 ]
 
 
 if __name__ == "__main__":
