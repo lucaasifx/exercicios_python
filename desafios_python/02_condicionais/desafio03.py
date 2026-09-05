@@ -8,7 +8,18 @@ sobre os eixos ("Eixo X", "Eixo Y") ou nos quadrantes ("Q1", "Q2", "Q3", "Q4").
 
 
 def localizar_ponto(x: float, y: float) -> str:
-    pass
+    if(x == 0 and y == 0):
+        return "Origem"
+    elif(x == 0 and y != 0):
+        return "Eixo Y"
+    elif(x != 0 and y == 0):
+        return "Eixo X"
+    else:
+        if x > 0:
+            return "Q1" if y > 0 else "Q4"
+        else:
+            return "Q2" if y > 0 else "Q3"
+
 
 
 if __name__ == "__main__":

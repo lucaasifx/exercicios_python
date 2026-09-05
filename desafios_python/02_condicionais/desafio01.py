@@ -7,7 +7,7 @@ Avalie se dois números inteiros são múltiplos entre si (ou seja, se a divisã
 
 
 def sao_multiplos(a: int, b: int) -> bool:
-    pass
+    return a % b == 0 or b % a == 0
 
 
 if __name__ == "__main__":
