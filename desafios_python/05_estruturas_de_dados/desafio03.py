@@ -5,9 +5,12 @@ Dificuldade: Médio
 Encontre os índices dos dois elementos cujo somatório atinge o valor alvo utilizando um dicionário para busca em tempo O(n).
 """
 
-
+# depois implemento a solucao O(n)
 def dois_soma(nums: list[int], alvo: int) -> tuple[int, int]:
-    pass
+    for i in range(len(nums)):
+        for j in range(i + 1, len(nums)):
+            if nums[i] + nums[j] == alvo:
+                return (i, j)
 
 
 if __name__ == "__main__":
