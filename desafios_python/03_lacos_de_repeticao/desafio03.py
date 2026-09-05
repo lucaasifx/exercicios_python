@@ -7,7 +7,10 @@ Verifique se um inteiro n (> 1) é divisível unicamente por 1 e por ele mesmo, 
 
 
 def eh_primo(n: int) -> bool:
-    pass
+    for i in range(2, n):
+        if(n%i == 0):
+            return False
+    return True
 
 
 if __name__ == "__main__":

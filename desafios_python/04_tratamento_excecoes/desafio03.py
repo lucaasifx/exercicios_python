@@ -7,7 +7,14 @@ Percorra uma lista mista somando valores conversíveis para float. Capture Value
 
 
 def somar_validos(itens: list) -> float:
-    pass
+    sum = 0.0
+    for i in itens:
+        try:
+            sum += float(i)
+        except:
+            pass
+    return sum
+
 
 
 if __name__ == "__main__":

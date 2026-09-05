@@ -7,7 +7,13 @@ Encontre os índices dos dois elementos cujo somatório atinge o valor alvo util
 
 
 def dois_soma(nums: list[int], alvo: int) -> tuple[int, int]:
-    pass
+    hashing = dict()
+
+    for index, value in enumerate(nums):
+        if (value in hashing):
+            return (hashing[value], index)
+        hashing[alvo-value] = index
+
 
 
 if __name__ == "__main__":

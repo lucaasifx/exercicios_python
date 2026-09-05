@@ -7,7 +7,9 @@ Execute a divisão de a por b. Trate explicitamente ZeroDivisionError para retor
 
 
 def dividir(a: float, b: float) -> float | None:
-    pass
+    if(b == 0):
+        return None
+    return a/b
 
 
 if __name__ == "__main__":
