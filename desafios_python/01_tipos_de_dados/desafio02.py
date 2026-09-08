@@ -9,7 +9,7 @@ ou quebras de linha (ex: "  42 \n"). Limpe os caracteres vazios e retorne o valo
 
 
 def sanitizar_parametro(param: str) -> int:
-    return int(param.strip())
+    pass
 
 
 if __name__ == "__main__":
