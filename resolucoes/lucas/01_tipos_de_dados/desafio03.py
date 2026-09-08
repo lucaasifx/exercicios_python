@@ -1,35 +1,33 @@
 """
-beecrowd 1041 — Coordenadas de um Ponto
+Formatador de Moeda para API
 Dificuldade: Médio
 
-Receba coordenadas de ponto flutuante (x, y) e determine se o ponto está na "Origem",
-sobre os eixos ("Eixo X", "Eixo Y") ou nos quadrantes ("Q1", "Q2", "Q3", "Q4").
+Enunciado:
+Receba um valor em ponto flutuante representando uma quantia financeira e retorne
+uma string formatada no padrão de moeda com prefixo 'R$ ' e exatamente duas casas decimais.
 """
 
 
-def localizar_ponto(x: float, y: float) -> str:
+def formatar_moeda(valor: float) -> str:
     pass
 
 
 if __name__ == "__main__":
     casos = [
-        ((0.0, 0.0), 'Origem'),
-        ((0.0, 5.0), 'Eixo Y'),
-        ((3.0, 0.0), 'Eixo X'),
-        ((0.1, 0.1), 'Q1'),
-        ((-0.1, 0.1), 'Q2'),
-        ((-0.1, -0.1), 'Q3'),
-        ((0.1, -0.1), 'Q4')
+        ((1250.5,), "R$ 1250.50"),
+        ((0.0,), "R$ 0.00"),
+        ((99.999,), "R$ 100.00"),
+        ((7.1,), "R$ 7.10")
     ]
 
     print("=" * 50)
-    print("Iniciando testes para: localizar_ponto")
+    print("Iniciando testes para: formatar_moeda")
     print("=" * 50)
 
     sucessos = 0
     for idx, (entrada, esperado) in enumerate(casos, 1):
         try:
-            obtido = localizar_ponto(*entrada)
+            obtido = formatar_moeda(*entrada)
             if obtido == esperado:
                 print(f"[OK] Teste {idx} passou!")
                 sucessos += 1

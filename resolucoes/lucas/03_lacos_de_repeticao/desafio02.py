@@ -1,35 +1,40 @@
 """
-beecrowd 1041 — Coordenadas de um Ponto
-Dificuldade: Médio
+LeetCode 412 — Fizz Buzz
+Dificuldade: Fácil
 
-Receba coordenadas de ponto flutuante (x, y) e determine se o ponto está na "Origem",
-sobre os eixos ("Eixo X", "Eixo Y") ou nos quadrantes ("Q1", "Q2", "Q3", "Q4").
+Gere uma lista de 1 a n substituindo múltiplos de 3 por "Fizz", de 5 por "Buzz" e de ambos por "FizzBuzz".
 """
 
 
-def localizar_ponto(x: float, y: float) -> str:
-    pass
+def fizz_buzz(n: int) -> list[str]:
+    ans = []
+    for i in range(1, n + 1):
+        if i % 3 == 0 and i % 5 == 0:
+            ans.append("FizzBuzz")
+        elif i % 3 == 0:
+            ans.append("Fizz")
+        elif i % 5 == 0:
+            ans.append("Buzz")
+        else:
+            ans.append(f"{i}")
+    return ans
 
 
 if __name__ == "__main__":
     casos = [
-        ((0.0, 0.0), 'Origem'),
-        ((0.0, 5.0), 'Eixo Y'),
-        ((3.0, 0.0), 'Eixo X'),
-        ((0.1, 0.1), 'Q1'),
-        ((-0.1, 0.1), 'Q2'),
-        ((-0.1, -0.1), 'Q3'),
-        ((0.1, -0.1), 'Q4')
+        ((3,), ['1', '2', 'Fizz']),
+        ((5,), ['1', '2', 'Fizz', '4', 'Buzz']),
+        ((15,), ['1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8', 'Fizz', 'Buzz', '11', 'Fizz', '13', '14', 'FizzBuzz'])
     ]
 
     print("=" * 50)
-    print("Iniciando testes para: localizar_ponto")
+    print("Iniciando testes para: fizz_buzz")
     print("=" * 50)
 
     sucessos = 0
     for idx, (entrada, esperado) in enumerate(casos, 1):
         try:
-            obtido = localizar_ponto(*entrada)
+            obtido = fizz_buzz(*entrada)
             if obtido == esperado:
                 print(f"[OK] Teste {idx} passou!")
                 sucessos += 1

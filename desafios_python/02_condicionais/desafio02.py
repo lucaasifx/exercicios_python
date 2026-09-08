@@ -7,7 +7,7 @@ Determine se um ano é bissexto: divisível por 4, exceto múltiplos de 100 (a m
 
 
 def eh_bissexto(ano: int) -> bool:
-    return ano % 4 == 0 and (ano % 100 != 0 or ano % 400 == 0)
+    pass
 
 
 if __name__ == "__main__":

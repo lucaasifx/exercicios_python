@@ -7,10 +7,7 @@ Tente converter uma string para inteiro. Intercepte ValueError caso a conversão
 
 
 def parse_inteiro(texto: str) -> int:
-    try:
-        return int(texto)
-    except ValueError:
-        return -1
+    pass
 
 
 if __name__ == "__main__":

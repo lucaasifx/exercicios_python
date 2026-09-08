@@ -1,35 +1,34 @@
 """
-beecrowd 1041 — Coordenadas de um Ponto
-Dificuldade: Médio
+Conversor Seguro de Inteiro
+Dificuldade: Fácil
 
-Receba coordenadas de ponto flutuante (x, y) e determine se o ponto está na "Origem",
-sobre os eixos ("Eixo X", "Eixo Y") ou nos quadrantes ("Q1", "Q2", "Q3", "Q4").
+Tente converter uma string para inteiro. Intercepte ValueError caso a conversão falhe e retorne o sentinela -1.
 """
 
 
-def localizar_ponto(x: float, y: float) -> str:
-    pass
+def parse_inteiro(texto: str) -> int:
+    try:
+        return int(texto)
+    except ValueError:
+        return -1
 
 
 if __name__ == "__main__":
     casos = [
-        ((0.0, 0.0), 'Origem'),
-        ((0.0, 5.0), 'Eixo Y'),
-        ((3.0, 0.0), 'Eixo X'),
-        ((0.1, 0.1), 'Q1'),
-        ((-0.1, 0.1), 'Q2'),
-        ((-0.1, -0.1), 'Q3'),
-        ((0.1, -0.1), 'Q4')
+        (('42',), 42),
+        (('abc',), -1),
+        (('  100 \n',), 100),
+        (('12.34',), -1)
     ]
 
     print("=" * 50)
-    print("Iniciando testes para: localizar_ponto")
+    print("Iniciando testes para: parse_inteiro")
     print("=" * 50)
 
     sucessos = 0
     for idx, (entrada, esperado) in enumerate(casos, 1):
         try:
-            obtido = localizar_ponto(*entrada)
+            obtido = parse_inteiro(*entrada)
             if obtido == esperado:
                 print(f"[OK] Teste {idx} passou!")
                 sucessos += 1

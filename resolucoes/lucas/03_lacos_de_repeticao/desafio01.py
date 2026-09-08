@@ -1,35 +1,37 @@
 """
-beecrowd 1041 — Coordenadas de um Ponto
-Dificuldade: Médio
+beecrowd 1067 — Números Ímpares
+Dificuldade: Muito Fácil
 
-Receba coordenadas de ponto flutuante (x, y) e determine se o ponto está na "Origem",
-sobre os eixos ("Eixo X", "Eixo Y") ou nos quadrantes ("Q1", "Q2", "Q3", "Q4").
+Retorne uma lista contendo todos os números inteiros ímpares no intervalo fechado de 1 até n.
 """
 
 
-def localizar_ponto(x: float, y: float) -> str:
-    pass
+# nessa aqui vou tentar treinar list comprehension alem da resposta
+def obter_impares(n: int) -> list[int]:
+    # resposta trivial
+    # ans = []
+    # for i in range(n + 1):
+    #     if i % 2 != 0:
+    #         ans.append(i)
+    # return ans
+    return [i for i in range(n + 1) if i % 2 != 0 ]
 
 
 if __name__ == "__main__":
     casos = [
-        ((0.0, 0.0), 'Origem'),
-        ((0.0, 5.0), 'Eixo Y'),
-        ((3.0, 0.0), 'Eixo X'),
-        ((0.1, 0.1), 'Q1'),
-        ((-0.1, 0.1), 'Q2'),
-        ((-0.1, -0.1), 'Q3'),
-        ((0.1, -0.1), 'Q4')
+        ((8,), [1, 3, 5, 7]),
+        ((1,), [1]),
+        ((11,), [1, 3, 5, 7, 9, 11])
     ]
 
     print("=" * 50)
-    print("Iniciando testes para: localizar_ponto")
+    print("Iniciando testes para: obter_impares")
     print("=" * 50)
 
     sucessos = 0
     for idx, (entrada, esperado) in enumerate(casos, 1):
         try:
-            obtido = localizar_ponto(*entrada)
+            obtido = obter_impares(*entrada)
             if obtido == esperado:
                 print(f"[OK] Teste {idx} passou!")
                 sucessos += 1

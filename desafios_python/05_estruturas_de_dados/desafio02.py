@@ -7,10 +7,8 @@ Dado um dicionário de preços e uma lista de compras [(produto, quantidade)], c
 
 
 def calcular_feira(tabela: dict[str, float], compras: list[tuple[str, int]]) -> float:
-    total = 0
-    for compra in compras:
-        total += tabela[compra[0]] * compra[1]
-    return total
+    pass
+
 
 if __name__ == "__main__":
     casos = [

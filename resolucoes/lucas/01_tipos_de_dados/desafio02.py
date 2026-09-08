@@ -1,35 +1,33 @@
 """
-beecrowd 1041 — Coordenadas de um Ponto
-Dificuldade: Médio
+Sanitizador de Parâmetro Numérico
+Dificuldade: Fácil
 
-Receba coordenadas de ponto flutuante (x, y) e determine se o ponto está na "Origem",
-sobre os eixos ("Eixo X", "Eixo Y") ou nos quadrantes ("Q1", "Q2", "Q3", "Q4").
+Enunciado:
+Receba uma string contendo um valor numérico que pode vir cercado de espaços em branco
+ou quebras de linha (ex: "  42 \n"). Limpe os caracteres vazios e retorne o valor como inteiro.
 """
 
 
-def localizar_ponto(x: float, y: float) -> str:
+def sanitizar_parametro(param: str) -> int:
     pass
 
 
 if __name__ == "__main__":
     casos = [
-        ((0.0, 0.0), 'Origem'),
-        ((0.0, 5.0), 'Eixo Y'),
-        ((3.0, 0.0), 'Eixo X'),
-        ((0.1, 0.1), 'Q1'),
-        ((-0.1, 0.1), 'Q2'),
-        ((-0.1, -0.1), 'Q3'),
-        ((0.1, -0.1), 'Q4')
+        (("  42 \n",), 42),
+        (("120",), 120),
+        (("\t 999 \r\n",), 999),
+        (("-15  ",), -15)
     ]
 
     print("=" * 50)
-    print("Iniciando testes para: localizar_ponto")
+    print("Iniciando testes para: sanitizar_parametro")
     print("=" * 50)
 
     sucessos = 0
     for idx, (entrada, esperado) in enumerate(casos, 1):
         try:
-            obtido = localizar_ponto(*entrada)
+            obtido = sanitizar_parametro(*entrada)
             if obtido == esperado:
                 print(f"[OK] Teste {idx} passou!")
                 sucessos += 1

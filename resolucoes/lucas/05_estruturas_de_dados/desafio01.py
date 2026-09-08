@@ -1,35 +1,36 @@
 """
-beecrowd 1041 — Coordenadas de um Ponto
-Dificuldade: Médio
+LeetCode 217 — Contains Duplicate
+Dificuldade: Muito Fácil
 
-Receba coordenadas de ponto flutuante (x, y) e determine se o ponto está na "Origem",
-sobre os eixos ("Eixo X", "Eixo Y") ou nos quadrantes ("Q1", "Q2", "Q3", "Q4").
+Verifique a presença de elementos repetidos em uma lista de inteiros utilizando um conjunto (set).
 """
 
 
-def localizar_ponto(x: float, y: float) -> str:
-    pass
+def contem_duplicata(nums: list[int]) -> bool:
+    ans = set()
+    for num in nums:
+        if num in ans:
+            return True
+        ans.add(num)
+    return False
 
 
 if __name__ == "__main__":
     casos = [
-        ((0.0, 0.0), 'Origem'),
-        ((0.0, 5.0), 'Eixo Y'),
-        ((3.0, 0.0), 'Eixo X'),
-        ((0.1, 0.1), 'Q1'),
-        ((-0.1, 0.1), 'Q2'),
-        ((-0.1, -0.1), 'Q3'),
-        ((0.1, -0.1), 'Q4')
+        (([1, 2, 3, 1],), True),
+        (([1, 2, 3, 4],), False),
+        (([],), False),
+        (([1, 1, 1, 3, 3, 4, 3, 2, 4, 2],), True)
     ]
 
     print("=" * 50)
-    print("Iniciando testes para: localizar_ponto")
+    print("Iniciando testes para: contem_duplicata")
     print("=" * 50)
 
     sucessos = 0
     for idx, (entrada, esperado) in enumerate(casos, 1):
         try:
-            obtido = localizar_ponto(*entrada)
+            obtido = contem_duplicata(*entrada)
             if obtido == esperado:
                 print(f"[OK] Teste {idx} passou!")
                 sucessos += 1

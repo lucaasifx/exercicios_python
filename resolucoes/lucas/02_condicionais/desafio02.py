@@ -1,35 +1,31 @@
 """
-beecrowd 1041 — Coordenadas de um Ponto
-Dificuldade: Médio
+HackerRank — Ano Bissexto
+Dificuldade: Fácil
 
-Receba coordenadas de ponto flutuante (x, y) e determine se o ponto está na "Origem",
-sobre os eixos ("Eixo X", "Eixo Y") ou nos quadrantes ("Q1", "Q2", "Q3", "Q4").
+Determine se um ano é bissexto: divisível por 4, exceto múltiplos de 100 (a menos que sejam também múltiplos de 400).
 """
 
 
-def localizar_ponto(x: float, y: float) -> str:
-    pass
+def eh_bissexto(ano: int) -> bool:
+    return ano % 4 == 0 and (ano % 100 != 0 or ano % 400 == 0)
 
 
 if __name__ == "__main__":
     casos = [
-        ((0.0, 0.0), 'Origem'),
-        ((0.0, 5.0), 'Eixo Y'),
-        ((3.0, 0.0), 'Eixo X'),
-        ((0.1, 0.1), 'Q1'),
-        ((-0.1, 0.1), 'Q2'),
-        ((-0.1, -0.1), 'Q3'),
-        ((0.1, -0.1), 'Q4')
+        ((2000,), True),
+        ((1900,), False),
+        ((2024,), True),
+        ((2023,), False)
     ]
 
     print("=" * 50)
-    print("Iniciando testes para: localizar_ponto")
+    print("Iniciando testes para: eh_bissexto")
     print("=" * 50)
 
     sucessos = 0
     for idx, (entrada, esperado) in enumerate(casos, 1):
         try:
-            obtido = localizar_ponto(*entrada)
+            obtido = eh_bissexto(*entrada)
             if obtido == esperado:
                 print(f"[OK] Teste {idx} passou!")
                 sucessos += 1

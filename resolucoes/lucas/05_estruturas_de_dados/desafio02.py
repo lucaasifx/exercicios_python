@@ -1,35 +1,31 @@
 """
-beecrowd 1041 — Coordenadas de um Ponto
-Dificuldade: Médio
+beecrowd 1281 — Ida à Feira
+Dificuldade: Fácil
 
-Receba coordenadas de ponto flutuante (x, y) e determine se o ponto está na "Origem",
-sobre os eixos ("Eixo X", "Eixo Y") ou nos quadrantes ("Q1", "Q2", "Q3", "Q4").
+Dado um dicionário de preços e uma lista de compras [(produto, quantidade)], calcule o custo financeiro total.
 """
 
 
-def localizar_ponto(x: float, y: float) -> str:
-    pass
-
+def calcular_feira(tabela: dict[str, float], compras: list[tuple[str, int]]) -> float:
+    total = 0
+    for compra in compras:
+        total += tabela[compra[0]] * compra[1]
+    return total
 
 if __name__ == "__main__":
     casos = [
-        ((0.0, 0.0), 'Origem'),
-        ((0.0, 5.0), 'Eixo Y'),
-        ((3.0, 0.0), 'Eixo X'),
-        ((0.1, 0.1), 'Q1'),
-        ((-0.1, 0.1), 'Q2'),
-        ((-0.1, -0.1), 'Q3'),
-        ((0.1, -0.1), 'Q4')
+        (({'banana': 2.5, 'maca': 4.0, 'laranja': 1.5}, [('banana', 2), ('maca', 1)]), 9.0),
+        (({'laranja': 1.5}, [('laranja', 4)]), 6.0)
     ]
 
     print("=" * 50)
-    print("Iniciando testes para: localizar_ponto")
+    print("Iniciando testes para: calcular_feira")
     print("=" * 50)
 
     sucessos = 0
     for idx, (entrada, esperado) in enumerate(casos, 1):
         try:
-            obtido = localizar_ponto(*entrada)
+            obtido = calcular_feira(*entrada)
             if obtido == esperado:
                 print(f"[OK] Teste {idx} passou!")
                 sucessos += 1
